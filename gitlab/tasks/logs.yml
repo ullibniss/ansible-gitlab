@@ -1,0 +1,5 @@
+---
+- name: Get logs for gitlab
+  command: docker-compose logs
+  args:
+    chdir: "{{ gitlab_deploy_dir }}"

@@ -1,0 +1,5 @@
+---
+- name: Start gitlab
+  command: docker-compose up -d
+  args:
+    chdir: "{{ gitlab_deploy_dir }}"

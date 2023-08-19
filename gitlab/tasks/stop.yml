@@ -1,0 +1,5 @@
+---
+- name: Stop gitlab
+  command: docker-compose stop
+  args:
+    chdir: "{{ gitlab_deploy_dir }}"

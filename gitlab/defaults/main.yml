@@ -1,0 +1,10 @@
+gitlab_deploy_dir: "/opt/gitlab"
+gitlab_logs_dir: "{{ gitlab_deploy_dir }}/logs"
+gitlab_data_dir: "{{ gitlab_deploy_dir }}/data"
+gitlab_config_dir: "{{ gitlab_deploy_dir }}/config"
+
+gitlab_image_name: "gitlab/gitlab-ee"
+gitlab_image_tag: "latest"
+gitlab_url: "https://gitlab.example.com"
+
+default_user: "{{ lookup('env','USER') }}"

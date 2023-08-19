@@ -1,0 +1,22 @@
+---
+- name: Create gitlab deploy dir
+  file:
+    path: "{{ item }}"
+    state: directory
+    owner: "{{ default_user }}"
+    group: "{{ default_user }}"
+    mode: 755
+  loop: 
+    - "{{ gitlab_deploy_dir }}"
+    - "{{ gitlab_data_dir }}"
+    - "{{ gitlab_logs_dir }}"
+  become: true
+
+- name: Render docker-compose file
+  template:
+    src: "docker-compose.yml"
+    dest: "{{ gitlab_deploy_dir }}/docker-compose.yml"
+    groups: "{{ default_user }}"
+    owner: "{{ default_user }}"
+    mode: 644
+  become: true
